@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1019">
+  <title>DKU CS Club · Club Expo Fun Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body data-mode="browse">
+  <header class="topbar">
+    <a class="brand" href="#q-1" aria-label="Go to the first question"><span class="brand-icon">&lt;/&gt;</span><span>DKU <strong>CS CLUB</strong><small>QUESTION WALL</small></span></a>
+    <div class="top-note"><span class="status-dot"></span>Club Expo Fun Quiz</div>
+    <button id="fullscreen" class="plain-button" type="button">Fullscreen ⛶</button>
+  </header>
+  <nav class="mode-switch" aria-label="Quiz mode">
+    <button id="browse-mode" type="button" aria-pressed="true" aria-controls="browse-panel">Browse Questions</button>
+    <button id="challenge-mode" type="button" aria-pressed="false" aria-controls="challenge-panel">Quiz Challenge</button>
+    <span>Club Expo Fun Quiz</span>
+  </nav>
+  <div class="workspace" id="browse-panel">
+    <aside class="sidebar" aria-label="Question navigation">
+      <nav id="quiz-nav" aria-label="Quiz topics"></nav>
+      <div class="key-guide"><p><kbd>↑</kbd> <kbd>↓</kbd> Previous / next</p><p><kbd>A</kbd> Show / hide answer</p><p><kbd>Space</kbd> Play / pause</p></div>
+      <div class="sidebar-footer">COMPUTING × COMMUNITY<br><span>50 QUESTIONS / ONE SESSION</span></div>
+    </aside>
+    <main id="question-stream" aria-label="Question display" tabindex="0"></main>
+  </div>
+  <footer class="controls">
+    <div class="position"><span class="status-dot"></span><span id="position">01 / 50</span><span class="position-label" id="section-name">PART 1</span></div>
+    <div class="playback"><label for="interval">Per question</label><select id="interval"><option value="15">15 s</option><option value="30" selected>30 s</option><option value="60">60 s</option></select><button id="play" class="play-button" type="button" aria-pressed="false">▶ Autoplay</button><span id="countdown" aria-live="off">Paused</span></div>
+    <div class="step-controls"><button id="previous" class="plain-button" type="button" aria-label="Previous">↑ Previous</button><button id="next" class="plain-button" type="button" aria-label="Next">Next ↓</button></div>
+    <div class="progress-track"><div id="progress"></div></div>
+  </footer>
+  <main id="challenge-panel" class="challenge-panel" aria-label="Quiz Challenge" hidden>
+    <div class="challenge-header"><span class="tag">QUIZ CHALLENGE</span><button id="restart-challenge" class="plain-button" type="button">Restart ↻</button><div class="streak" aria-label="Consecutive correct answers"><span id="streak-label">0 / 5 correct</span><div id="streak-dots" aria-hidden="true"></div></div></div>
+    <div id="challenge-content"></div>
+  </main>
+  <dialog id="retry-dialog" aria-labelledby="retry-title" aria-describedby="retry-description">
+    <h2 id="retry-title">Try again</h2>
+    <p id="retry-description">Try again — your streak is back to zero. A fresh set of five questions is ready.</p>
+    <form method="dialog"><button class="play-button" autofocus>Back to start →</button></form>
+  </dialog>
+  <div id="announcement" class="sr-only" aria-live="polite"></div>
+  <noscript>Please enable JavaScript to display all 50 questions.</noscript>
+</body>
+</html>
